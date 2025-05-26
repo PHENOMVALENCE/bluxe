@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Breathe Luxe</title>
+    <link rel="stylesheet" href="style_lg.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>Breathe Luxe</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="packages.html">Packages</a></li>
+                <li><a href="booking.html">Booking</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="login.html" class="active">Login</a></li>
+            </ul>
+        </nav>
+        <div class="menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </header>
+
+    <section class="page-banner">
+        <div class="container">
+            <h2>Account Login</h2>
+            <p>Access your Breathe Luxe account</p>
+        </div>
+    </section>
+
+    <section class="login-section">
+        <div class="container">
+            <div class="login-container">
+                <div class="login-tabs">
+                    <button class="tab-btn active" data-tab="customer">Customer Login</button>
+                    <button class="tab-btn" data-tab="admin">Admin Login</button>
+                </div>
+                
+                <div class="tab-content active" id="customer-tab">
+                    <div class="form-container">
+                        <h3>Customer Login</h3>
+                        <div id="login-message" class="message-box hidden"></div>
+                        <form id="customerLoginForm" action="login_process.php" method="POST">
+                            <input type="hidden" name="login_type" value="customer">
+                            <div class="form-group">
+                                <label for="customerEmail">Email Address</label>
+                                <input type="email" id="customerEmail" name="email" required>
+                                <span class="error-message" id="customerEmailError"></span>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="customerPassword">Password</label>
+                                <input type="password" id="customerPassword" name="password" required>
+                                <span class="error-message" id="customerPasswordError"></span>
+                            </div>
+                            
+                            <div class="form-group remember-me">
+                                <div class="checkbox-group">
+                                    <input type="checkbox" id="rememberMe" name="remember_me">
+                                    <label for="rememberMe">Remember me</label>
+                                </div>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-block">Login</button>
+                        </form>
+                        
+                        <div class="form-links">
+                            <a href="forgot_password.html">Forgot Password?</a>
+                            <span class="separator">|</span>
+                            <a href="register.html">Create an Account</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tab-content" id="admin-tab">
+                    <div class="form-container">
+                        <h3>Admin Login</h3>
+                        <div id="admin-login-message" class="message-box hidden"></div>
+                        <form id="adminLoginForm" action="login_process.php" method="POST">
+                            <input type="hidden" name="login_type" value="admin">
+                            <div class="form-group">
+                                <label for="adminUsername">Username</label>
+                                <input type="text" id="adminUsername" name="username" required>
+                                <span class="error-message" id="adminUsernameError"></span>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="adminPassword">Password</label>
+                                <input type="password" id="adminPassword" name="password" required>
+                                <span class="error-message" id="adminPasswordError"></span>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-block">Login</button>
+                        </form>
+                        
+                        <div class="form-links">
+                            <a href="forgot_password.html">Forgot Password?</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>Breathe Luxe</h2>
+                    <p>Premium Hookah Rental Services</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="packages.html">Packages</a></li>
+                        <li><a href="booking.html">Booking</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact Us</h3>
+                    <p>Phone: (123) 456-7890</p>
+                    <p>Email: info@breatheluxe.com</p>
+                    <p>Address: 123 Smoke St, Hookah City</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Breathe Luxe. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

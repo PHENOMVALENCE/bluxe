@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Your Hookah - Breathe Luxe</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>Breathe Luxe</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="packages.html">Packages</a></li>
+                <li><a href="booking.html" class="active">Booking</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </header>
+
+    <section class="page-banner">
+        <div class="container">
+            <h2>Book Your Hookah Experience</h2>
+            <p>Fill out the form below to reserve your premium hookah rental</p>
+        </div>
+    </section>
+
+    <section class="booking-section">
+        <div class="container">
+            <div class="booking-container">
+                <div class="booking-info">
+                    <h3>Booking Information</h3>
+                    <p>Please provide your details to complete your booking. We'll confirm your reservation within 24 hours.</p>
+                    <div class="booking-steps">
+                        <div class="step">
+                            <div class="step-number">1</div>
+                            <div class="step-text">Select your package</div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">2</div>
+                            <div class="step-text">Fill in your details</div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">3</div>
+                            <div class="step-text">Choose payment method</div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">4</div>
+                            <div class="step-text">Confirm booking</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="booking-form">
+                    <form id="bookingForm" action="booking_process.php" method="POST">
+                        <div class="form-group">
+                            <label for="fullName">Full Name*</label>
+                            <input type="text" id="fullName" name="fullName" required>
+                            <span class="error-message" id="fullNameError"></span>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email">Email Address*</label>
+                                <input type="email" id="email" name="email" required>
+                                <span class="error-message" id="emailError"></span>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="phone">Phone Number*</label>
+                                <input type="tel" id="phone" name="phone" required>
+                                <span class="error-message" id="phoneError"></span>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="package">Select Package*</label>
+                            <select id="package" name="package" required>
+                                <option value="">-- Select a Package --</option>
+                                <option value="starter">Starter Kit ($60)</option>
+                                <option value="flavour">Free Flavour Sampling ($80)</option>
+                                <option value="vip">VIP Lounge Services ($120)</option>
+                                <option value="holiday">Holiday Package ($100)</option>
+                            </select>
+                            <span class="error-message" id="packageError"></span>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="date">Preferred Date*</label>
+                                <input type="date" id="date" name="date" required>
+                                <span class="error-message" id="dateError"></span>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="time">Preferred Time*</label>
+                                <input type="time" id="time" name="time" required>
+                                <span class="error-message" id="timeError"></span>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="address">Event Address*</label>
+                            <textarea id="address" name="address" rows="3" required></textarea>
+                            <span class="error-message" id="addressError"></span>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="specialRequests">Special Requests (Optional)</label>
+                            <textarea id="specialRequests" name="specialRequests" rows="3"></textarea>
+                        </div>
+                        
+                        <div class="form-group payment-options">
+                            <label>Payment Method*</label>
+                            <div class="radio-group">
+                                <input type="radio" id="mpesa" name="paymentMethod" value="mpesa" required>
+                                <label for="mpesa">Mobile Money (M-Pesa)</label>
+                            </div>
+                            <div class="radio-group">
+                                <input type="radio" id="cash" name="paymentMethod" value="cash">
+                                <label for="cash">Pay Later (Cash)</label>
+                            </div>
+                            <span class="error-message" id="paymentMethodError"></span>
+                        </div>
+                        
+                        <div id="mpesaDetails" class="form-group hidden">
+                            <label for="mpesaNumber">M-Pesa Number*</label>
+                            <input type="tel" id="mpesaNumber" name="mpesaNumber">
+                            <span class="error-message" id="mpesaNumberError"></span>
+                        </div>
+                        
+                        <div class="form-group terms">
+                            <div class="checkbox-group">
+                                <input type="checkbox" id="terms" name="terms" required>
+                                <label for="terms">I agree to the <a href="#">Terms and Conditions</a>*</label>
+                            </div>
+                            <span class="error-message" id="termsError"></span>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-block">Complete Booking</button>
+                    </form>
+                </div>
+            </div>
+            
+            <div id="bookingConfirmation" class="booking-confirmation hidden">
+                <div class="confirmation-content">
+                    <div class="confirmation-icon">✓</div>
+                    <h3>Booking Confirmed!</h3>
+                    <p>Thank you for your booking. We've sent a confirmation email with all the details.</p>
+                    <p class="booking-reference">Booking Reference: <span id="bookingReference"></span></p>
+                    <a href="index.html" class="btn">Return to Home</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>Breathe Luxe</h2>
+                    <p>Premium Hookah Rental Services</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="packages.html">Packages</a></li>
+                        <li><a href="booking.html">Booking</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact Us</h3>
+                    <p>Phone: (123) 456-7890</p>
+                    <p>Email: info@breatheluxe.com</p>
+                    <p>Address: 123 Smoke St, Hookah City</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Breathe Luxe. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
