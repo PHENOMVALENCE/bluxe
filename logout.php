@@ -1,4 +1,5 @@
 <?php
+<<<<<<< HEAD
 // Start session
 session_start();
 
@@ -37,4 +38,13 @@ session_destroy();
 // Redirect to home page
 header('Location: index.html');
 exit;
+=======
+require_once 'config.php';
+
+// Destroy session
+session_destroy();
+
+// Redirect to home page
+redirect('index.php');
+>>>>>>> master
 ?>
